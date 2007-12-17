@@ -16,7 +16,6 @@ BuildRequires:      perl(File::Temp)
 BuildRequires:      perl(Data::Dump)
 BuildRequires:      perl-version
 BuildArch:          noarch
-BuildRoot:          %{_tmppath}/%{name}-%{version}
 
 %description
 Perl Module for processing Atoms feed and that provides access to the Atom
