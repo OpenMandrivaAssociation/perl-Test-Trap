@@ -1,29 +1,35 @@
-%define module  Test-Trap
-%define name    perl-%{module}
-%define version 0.2.0
-%define release %mkrel 2
+%define upstream_name    Test-Trap
+%define upstream_version v0.2.1
 
-Name:               %{name}
-Version:            %{version}
-Release:            %{release}
-Summary:            Perl Module for Processing Atom Feeds
-License:            GPL or Artistic
-Group:              Development/Perl
-Url:                http://search.cpan.org/dist/%{module}/
-Source:             http://www.cpan.org/modules/by-module/Test/%{module}-%{version}.tar.gz
-BuildRequires:      perl(Test::Tester)
-BuildRequires:      perl(File::Temp)
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Trap exit codes, exceptions, output
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}/
+Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:      perl(Data::Dump)
-BuildRequires:      perl-version
+BuildRequires:      perl(File::Temp)
+BuildRequires:      perl(Test::Tester)
+BuildRequires:      perl(version)
+
 BuildArch:          noarch
-BuildRoot:          %{_tmppath}/%{name}-%{version}
+BuildRoot:          %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
-Perl Module for processing Atoms feed and that provides access to the Atom
-API.
+Primarily (but not exclusively) for use in test scripts: A block eval on
+steroids, configurable and extensible, but by default trapping (Perl)
+STDOUT, STDERR, warnings, exceptions, would-be exit codes, and return
+values from boxed blocks of test code.
+
+The values collected by the latest trap can then be queried or tested
+through a special trap object.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -44,5 +50,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Test
 %{_mandir}/*/*
-
-
