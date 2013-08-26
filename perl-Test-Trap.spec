@@ -1,15 +1,15 @@
 %define upstream_name    Test-Trap
-%define upstream_version v0.2.1
+%define upstream_version 0.2.2
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Trap exit codes, exceptions, output
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}/
-Source0:	http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Test/Test-Trap-v%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Data::Dump)
@@ -29,7 +29,7 @@ The values collected by the latest trap can then be queried or tested
 through a special trap object.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-v%{upstream_version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -86,4 +86,5 @@ make test
 
 * Sun Mar 18 2007 Shlomi Fish 0.0.21-1mdv2007.1
 - Initial release. Adapted the XML-Atom spec for this one.
+
 
