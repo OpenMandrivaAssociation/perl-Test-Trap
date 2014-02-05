@@ -1,5 +1,5 @@
 %define upstream_name    Test-Trap
-%define upstream_version 0.2.2
+%define upstream_version 0.2.3
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -86,5 +86,6 @@ make test
 
 * Sun Mar 18 2007 Shlomi Fish 0.0.21-1mdv2007.1
 - Initial release. Adapted the XML-Atom spec for this one.
+
 
 
