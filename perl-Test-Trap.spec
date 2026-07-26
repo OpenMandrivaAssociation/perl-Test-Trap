@@ -1,16 +1,14 @@
 %define upstream_name    Test-Trap
-%define upstream_version 0.2.4
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	0.2.4
+Release:	4
 
 Summary:	Trap exit codes, exceptions, output
 
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}/
-Source0:	http://www.cpan.org/modules/by-module/Test/%{upstream_name}-v%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/modules/by-module/Test/%{upstream_name}-v%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -31,7 +29,7 @@ The values collected by the latest trap can then be queried or tested
 through a special trap object.
 
 %prep
-%setup -q -n %{upstream_name}-v%{upstream_version}
+%setup -q -n %{upstream_name}-v%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
