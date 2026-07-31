@@ -1,7 +1,7 @@
 %define upstream_name    Test-Trap
 Name:		perl-%{upstream_name}
-Version:	0.2.4
-Release:	4
+Version:	0.3.5
+Release:	1
 
 Summary:	Trap exit codes, exceptions, output
 
@@ -29,7 +29,7 @@ The values collected by the latest trap can then be queried or tested
 through a special trap object.
 
 %prep
-%setup -q -n %{upstream_name}-v%{version}
+%setup -q -n Test-Trap-v0.3.5
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
